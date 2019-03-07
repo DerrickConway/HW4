@@ -23,6 +23,13 @@ Background: movies have been added to database
   Then 10 seed movies should exist
 
 Scenario: restrict to movies with 'PG' or 'R' ratings
+  Given I check the following ratings: PG, R
+  And I unchech the following ratings: G, PG-13
+  And I press "Refresh"
+  Then I should see "The Incredibles"
+  And I should see "Amelie"
+  And I should not see "Chicken Run"
+  And I should not see "Chocolat"
   # enter step(s) to check the 'PG' and 'R' checkboxes
   # enter step(s) to uncheck all other checkboxes
   # enter step to "submit" the search form on the homepage
